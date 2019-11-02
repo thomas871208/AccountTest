@@ -28,7 +28,6 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -81,5 +80,71 @@
         android:text="Cofirm"
         app:layout_constraintStart_toStartOf="@+id/ed_password"
         app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+    <ImageView
+        android:id="@+id/x1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/x" />
+
+    <ImageView
+        android:id="@+id/x2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:srcCompat="@drawable/x" />
+
+    <ImageView
+        android:id="@+id/x3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:srcCompat="@drawable/x" />
+
+    <TextView
+        android:id="@+id/speaker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="longer than 3 words"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/x1"
+        app:layout_constraintStart_toEndOf="@+id/x1"
+        app:layout_constraintTop_toTopOf="@+id/x1" />
+
+    <TextView
+        android:id="@+id/speaker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="can not be empty"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/x2"
+        app:layout_constraintStart_toEndOf="@+id/x2"
+        app:layout_constraintTop_toTopOf="@+id/x2" />
+
+    <TextView
+        android:id="@+id/speaker3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="longer than 5 words"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/x3"
+        app:layout_constraintStart_toEndOf="@+id/x3"
+        app:layout_constraintTop_toTopOf="@+id/x3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

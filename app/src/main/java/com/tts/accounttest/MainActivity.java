@@ -5,21 +5,32 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText ed_username;
     EditText ed_email;
     EditText ed_password;
+    ImageView x1;
+    ImageView x2;
+    ImageView x3;
+    TextView speaker1;
+    TextView speaker2;
+    TextView speaker3;
     int name;
-    String email;
+    int email;
     int password;
+    int result = 0;
 
 
     @Override
@@ -28,7 +39,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        ed_username = findViewById(R.id.ed_username);
+        ed_email = findViewById(R.id.ed_email);
+        ed_password = findViewById(R.id.ed_password);
+        x1 = findViewById(R.id.x1);
+        x2 = findViewById(R.id.x2);
+        x3 = findViewById(R.id.x3);
+        speaker1 = findViewById(R.id.speaker1);
+        speaker2 = findViewById(R.id.speaker2);
+        speaker3 = findViewById(R.id.speaker3);
+        Log.d("hahahayo","mes:"+name);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -37,12 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                ed_username = findViewById(R.id.ed_username);
-                ed_email = findViewById(R.id.ed_email);
-                ed_password = findViewById(R.id.ed_password);
 
-                name = ed_username.getText().toString().length();
-                password = ed_password.getText().toString().length();
+
+
+
 
 
             }
@@ -50,11 +68,69 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void confirm(View view){
-        if(name < 4){
+        name = ed_username.getText().toString().length();
+        password = ed_password.getText().toString().length();
+        email = ed_email.getText().toString().length();
+    for(int i=1;i<3;i++) {
+        if (result == 1) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Tip")
+                    .setMessage("創建成功")
+                    .setPositiveButton("OK", null)
+                    .show();
+            result = 0;
+
+        } else {
+            if (name < 4 && name != 0) {
+                    speaker1.setText("longer than 3 words");
+                    speaker1.setVisibility(View.VISIBLE);
+                    x1.setImageResource(R.drawable.x);
+                    x1.setVisibility(View.VISIBLE);
+                    result = 0;
+                } else if (name == 0) {
+                    speaker1.setText("cannot be empty");
+                    speaker1.setVisibility(View.VISIBLE);
+                    x1.setImageResource(R.drawable.x);
+                    x1.setVisibility(View.VISIBLE);
+                    result = 0;
+                } else {
+                    speaker1.setVisibility(View.GONE);
+                    x1.setVisibility(View.GONE);
+                    result = 1;
+            }
+            if (name == 0) {
+                speaker2.setText("cannot be empty");
+                speaker2.setVisibility(View.VISIBLE);
+                x2.setImageResource(R.drawable.x);
+                x2.setVisibility(View.VISIBLE);
+                result = 0;
+            } else {
+                speaker2.setVisibility(View.GONE);
+                x2.setVisibility(View.GONE);
+                result = 1;
+            }
+            if (password < 6 && name != 0) {
+                speaker3.setText("longer than 5 words");
+                speaker3.setVisibility(View.VISIBLE);
+                x3.setImageResource(R.drawable.x);
+                x3.setVisibility(View.VISIBLE);
+                result = 0;
+            } else if (name == 0) {
+                speaker3.setText("cannot be empty");
+                speaker3.setVisibility(View.VISIBLE);
+                x3.setImageResource(R.drawable.x);
+                x3.setVisibility(View.VISIBLE);
+                result = 0;
+            } else {
+                speaker3.setVisibility(View.GONE);
+                x3.setVisibility(View.GONE);
+                result = 1;
+            }
 
         }
-
     }
+
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
