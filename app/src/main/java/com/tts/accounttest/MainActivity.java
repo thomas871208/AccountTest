@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
     int name;
     int email;
     int password;
-    int result = 0;
+    int result1 = 0;
+    int result2 = 0;
+    int result3 = 0;
 
 
     @Override
@@ -72,13 +74,15 @@ public class MainActivity extends AppCompatActivity {
         password = ed_password.getText().toString().length();
         email = ed_email.getText().toString().length();
     for(int i=1;i<3;i++) {
-        if (result == 1) {
+        if (result1 == 1 && result2 == 1 && result3 ==1) {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("Tip")
                     .setMessage("創建成功")
                     .setPositiveButton("OK", null)
                     .show();
-            result = 0;
+            result1 = 0;
+            result2 = 0;
+            result3 = 0;
 
         } else {
             if (name < 4 && name != 0) {
@@ -86,45 +90,45 @@ public class MainActivity extends AppCompatActivity {
                     speaker1.setVisibility(View.VISIBLE);
                     x1.setImageResource(R.drawable.x);
                     x1.setVisibility(View.VISIBLE);
-                    result = 0;
+                    result1 = 0;
                 } else if (name == 0) {
                     speaker1.setText("cannot be empty");
                     speaker1.setVisibility(View.VISIBLE);
                     x1.setImageResource(R.drawable.x);
                     x1.setVisibility(View.VISIBLE);
-                    result = 0;
+                    result1 = 0;
                 } else {
                     speaker1.setVisibility(View.GONE);
                     x1.setVisibility(View.GONE);
-                    result = 1;
+                    result1 = 1;
             }
-            if (name == 0) {
+            if (email == 0) {
                 speaker2.setText("cannot be empty");
                 speaker2.setVisibility(View.VISIBLE);
                 x2.setImageResource(R.drawable.x);
                 x2.setVisibility(View.VISIBLE);
-                result = 0;
+                result2 = 0;
             } else {
                 speaker2.setVisibility(View.GONE);
                 x2.setVisibility(View.GONE);
-                result = 1;
+                result2 = 1;
             }
             if (password < 6 && name != 0) {
                 speaker3.setText("longer than 5 words");
                 speaker3.setVisibility(View.VISIBLE);
                 x3.setImageResource(R.drawable.x);
                 x3.setVisibility(View.VISIBLE);
-                result = 0;
+                result3 = 0;
             } else if (name == 0) {
                 speaker3.setText("cannot be empty");
                 speaker3.setVisibility(View.VISIBLE);
                 x3.setImageResource(R.drawable.x);
                 x3.setVisibility(View.VISIBLE);
-                result = 0;
+                result3 = 0;
             } else {
                 speaker3.setVisibility(View.GONE);
                 x3.setVisibility(View.GONE);
-                result = 1;
+                result3 = 1;
             }
 
         }
